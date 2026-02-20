@@ -379,9 +379,9 @@ const lessons = [
         }
     },
     {
-        id: "301",
+        id: "213",
         section: "Intermediate Master",
-        title: "Master Challenge",
+        title: "Intermediate Master Challenge",
         emoji: "🏆",
         desc: "The ultimate challenge! Combine aggregations, grouping, math, and filtering to solve advanced business scenarios.",
         tutorial: {
@@ -681,7 +681,7 @@ const managerRequestsByIndustry = {
             { req: "Let's check our inventory health. Show me the start of the year for each order date.", check: (res, sql) => sql.toLowerCase().includes("strftime('%y-01-01'"), hint: "Normalize all dates to Jan 1st of their year." },
             { req: "I'm analyzing our top-performing categories. Can you list the date 1 year after joining for each user?", check: (res, sql) => sql.toLowerCase().includes("'+1 year'"), hint: "Calculate the first anniversary." }
         ],
-        "301": [
+        "213": [
             { req: "Marketing needs a list. Find total revenue (price * quantity) per category, but only for categories with > $5000 total revenue. Group by category.", check: (res, sql) => sql.toLowerCase().includes("sum(price * quantity)") && sql.toLowerCase().includes("group by category") && sql.toLowerCase().includes("having") && sql.toLowerCase().includes("> 5000"), hint: "Combine aggregation of calculated totals with a grouping rule and a high revenue filter." },
             { req: "Let's check inventory. List product names and total quantity sold (Inner Join Orders) for 'Electronics' items. Sort by total quantity DESC.", check: (res, sql) => sql.toLowerCase().includes("join orders") && sql.toLowerCase().includes("sum(quantity)") && sql.toLowerCase().includes("electronics") && sql.toLowerCase().includes("order by"), hint: "Join tables to link sales to products, filter by category, sum the sales, and rank them." }
         ]
@@ -973,7 +973,7 @@ const managerRequestsByIndustry = {
             { req: "Shipping schedule. Find the day of the week for all order_dates.", check: (res, sql) => sql.toLowerCase().includes("strftime('%w', order_date)"), hint: "Determine which weekday orders are placed on." },
             { req: "System check. Query the current date using the 'now' modifier.", check: (res, sql) => sql.toLowerCase().includes("date('now')"), hint: "Get today's server date." }
         ],
-        "301": [
+        "213": [
             { req: "Executive report. Calculate average time_spent (from usage_logs) per plan (from subscriptions). Group by Plan.", check: (res, sql) => sql.toLowerCase().includes("avg(duration_mins)") && sql.toLowerCase().includes("join subscriptions") && sql.toLowerCase().includes("group by plan"), hint: "Join usage logs with subscriptions to group duration by plan type." },
             { req: "Churn risk. Count usage sessions (from usage_logs) per subscription plan (from subscriptions) where duration_mins < 10. Group by plan.", check: (res, sql) => sql.toLowerCase().includes("count") && sql.toLowerCase().includes("join subscriptions") && sql.toLowerCase().includes("duration_mins < 10") && sql.toLowerCase().includes("group by plan"), hint: "Join tables and count short sessions for each plan type." }
         ]
@@ -1266,7 +1266,7 @@ const managerRequestsByIndustry = {
             { req: "Weekday check. Day of week for last_raise.", check: (res, sql) => sql.toLowerCase().includes("strftime('%w', last_raise)"), hint: "When do raises take effect?" },
             { req: "Today. Get current date.", check: (res, sql) => sql.toLowerCase().includes("date('now')"), hint: "System date." }
         ],
-        "301": [
+        "213": [
             { req: "Budget report. Find total salary amount per Department ID. Filter for depts with total > 100,000.", check: (res, sql) => sql.toLowerCase().includes("sum(amount)") && sql.toLowerCase().includes("group by dept_id") && sql.toLowerCase().includes("having"), hint: "Group expenses by department and filter for high-budget units." },
             { req: "Tenure analysis. List Employee Name and 'Long Tenure' if hire_date < '2015-01-01' else 'Recent'. Order by hire_date.", check: (res, sql) => sql.toLowerCase().includes("case") && sql.toLowerCase().includes("when hire_date < '2015-01-01'") && sql.toLowerCase().includes("order by"), hint: "Categorize staff by their start date and sort chronologically." }
         ]
@@ -1558,7 +1558,7 @@ const managerRequestsByIndustry = {
             { req: "Archives. Format date as 'YYYY-MM'.", check: (res, sql) => sql.toLowerCase().includes("strftime('%y-%m', date)"), hint: "Formatting." },
             { req: "Weekend check. Day of week for date.", check: (res, sql) => sql.toLowerCase().includes("strftime('%w', date)"), hint: "Check for Saturday/Sunday." }
         ],
-        "301": [
+        "213": [
             { req: "Doctor impact. Count appointments (from appointments) per Doctor Name (Join Doctors). Group by Name.", check: (res, sql) => sql.toLowerCase().includes("count") && sql.toLowerCase().includes("join doctors") && sql.toLowerCase().includes("group by name"), hint: "Join the schedule with the doctor list to count visits per physician." },
             { req: "Patient history. List Patient Name and Appointment Reason for visits in '2023' (strftime). (Join Patients + Appointments).", check: (res, sql) => sql.toLowerCase().includes("join appointments") && sql.toLowerCase().includes("strftime('%y'") && sql.toLowerCase().includes("2023"), hint: "Join patient records with visits and filter by the appointment year." }
         ]
@@ -1850,7 +1850,7 @@ const managerRequestsByIndustry = {
             { req: "Archive. Format transaction date 'YYYY-MM'.", check: (res, sql) => sql.toLowerCase().includes("strftime('%y-%m', date)"), hint: "Format." },
             { req: "Business days. Day of week for open_date.", check: (res, sql) => sql.toLowerCase().includes("strftime('%w', open_date)"), hint: "Check opening day." }
         ],
-        "301": [
+        "213": [
             { req: "Branch performance. Total Sum of Transaction Amounts (Join Transactions + Accounts) grouped by Branch ID (from Accounts). Group by branch_id.", check: (res, sql) => sql.toLowerCase().includes("sum(amount)") && sql.toLowerCase().includes("join accounts") && sql.toLowerCase().includes("group by branch"), hint: "Join financial logs with account details to aggregate value by location." },
             { req: "Audit trail. Label transactions 'Flagged' if amount < -1000, else 'OK'. Show date and label for 'Checking' accounts (Join Trans + Accts).", check: (res, sql) => sql.toLowerCase().includes("case") && sql.toLowerCase().includes("when amount < -1000") && sql.toLowerCase().includes("join accounts") && sql.toLowerCase().includes("checking"), hint: "Join tables, filter for checking accounts, and flag high withdrawals." }
         ]
