@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Teacher | Master the Query</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Dashboard View -->
+        <main id="dashboard" class="view">
+            <header>
+                <h1>SQL Mastery</h1>
+                <p>Master the query. Build your future.</p>
+            </header>
+            <div id="lesson-grid" class="grid">
+                <!-- Lessons populated by JS -->
+            </div>
+        </main>
+
+        <!-- Lesson View -->
+        <main id="lesson-view" class="view hidden">
+            <nav class="lesson-nav">
+                <div class="lesson-nav-left">
+                    <button id="back-btn">← Dashboard</button>
+                    <button id="prev-lesson-btn" class="nav-arrow-btn" title="Previous Lesson">‹ Prev</button>
+                    <button id="next-lesson-btn-inline" class="nav-arrow-btn" title="Next Lesson">Next ›</button>
+                    <button id="read-guide-btn" class="secondary-btn" title="Read the full guide for this lesson">📖
+                        Read Guide</button>
+                </div>
+                <div id="lesson-header-info">
+                    <span id="lesson-id-label">Lesson 101</span>
+                    <h2 id="lesson-title">SQL SELECT</h2>
+                </div>
+            </nav>
+
+            <div class="lesson-layout">
+                <section class="request-panel">
+                    <div class="manager-card">
+                        <div id="manager-avatar" class="manager-avatar">👨‍💼</div>
+                        <div class="manager-bubble">
+                            <div class="bubble-header">
+                                <h3>Manager Request</h3>
+                                <span id="question-progress" class="progress-pill"></span>
+                            </div>
+                            <div class="bubble-body">
+                                <p id="manager-text">"Welcome to the team! Can you show me everything in our users
+                                    table?"
+                                </p>
+                            </div>
+                            <div class="bubble-footer">
+                                <button id="prev-question-btn" class="nav-btn-icon" disabled>← Prev</button>
+                                <span id="current-question-num" class="nav-label">Question 1 of 5</span>
+                                <button id="next-question-btn" class="nav-btn-icon">Next →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tutorial-card" class="tutorial-card">
+                        <div class="tutorial-header" id="tutorial-toggle">
+                            <h3>💡 Quick Learn</h3>
+                            <button class="tutorial-collapse-btn" aria-label="Toggle tutorial">▾</button>
+                        </div>
+                        <div id="tutorial-content">
+                            <p class="tutorial-concept" id="tutorial-concept"></p>
+                            <div class="tutorial-code-block">
+                                <span class="code-label">Syntax:</span>
+                                <pre id="tutorial-syntax"></pre>
+                            </div>
+                            <div class="tutorial-code-block">
+                                <span class="code-label">Example:</span>
+                                <pre id="tutorial-example"></pre>
+                                <button class="try-it-btn" id="try-it-btn">Try it ▶</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="main-editor-area">
+                    <div id="hint-panel" class="hint-panel" style="display: none;">
+                        <div class="hint-header">
+                            <span class="hint-icon">💡</span>
+                            <span class="hint-title">Helpful Hint</span>
+                        </div>
+                        <p id="hint-text" class="hint-content"></p>
+                    </div>
+
+                    <div class="tables-preview">
+                        <h3>📋 Available Tables</h3>
+                        <div id="tables-list">
+                            <!-- Table schemas populated by JS -->
+                        </div>
+                    </div>
+
+                    <div class="editor-header">
+                        <span>SQL Editor</span>
+                        <div class="editor-actions">
+                            <button id="run-btn" class="secondary-btn">Run Query ▶</button>
+                            <button id="submit-btn" class="primary-btn">Submit Answer ✓</button>
+                        </div>
+                    </div>
+                    <div class="code-editor-container">
+                        <textarea id="sql-editor" spellcheck="false" placeholder="SELECT * FROM ..."></textarea>
+                    </div>
+                    <div class="keyboard-hint">⌘ + Enter to run</div>
+                    <div class="resize-handle" id="resize-handle"></div>
+                    <div id="result-panel">
+                        <div class="result-header">Results</div>
+                        <div class="feedback-area">
+                            <!-- Result Box Removed -->
+                            <div id="inline-success" class="inline-success hidden">
+                                <span class="success-icon">🎉</span>
+                                <span class="success-msg">Challenge complete!</span>
+                                <button class="success-next-btn" id="inline-next-btn">Next Lesson →</button>
+                                <button class="success-retry-btn" id="inline-retry-btn">Practice Another</button>
+                            </div>
+                        </div>
+
+                        <div id="result-table-container">
+                            <!-- Query results shown here -->
+                            <div class="placeholder-text">Run a query to see results</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Guide View -->
+    <main id="guide-view" class="view hidden">
+        <nav class="guide-nav">
+            <button id="guide-back-btn" class="secondary-btn btn-sm">← Back to Dashboard</button>
+            <span id="guide-lesson-label" class="guide-label"></span>
+        </nav>
+        <article id="guide-content" class="guide-article">
+            <!-- Guide content rendered by JS -->
+        </article>
+    </main>
+
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal hidden">
+        <div class="modal-content">
+            <div style="font-size:3rem;margin-bottom:0.5rem;">🎉</div>
+            <h2>Challenge Complete!</h2>
+            <p>Your query returned the correct results. The manager is impressed!</p>
+            <div class="modal-buttons">
+                <button id="practice-more-btn" class="secondary-btn">Practice Another</button>
+                <button id="next-lesson-btn">Next Lesson</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="guides.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
