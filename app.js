@@ -2062,7 +2062,7 @@ const renderTableSchemas = () => {
     }).join('');
 };
 
-window.startLesson = (id, questionIndex = null) => {
+window.startLesson = (id, questionIndex = null, skipPush = false) => {
     currentLessonId = id;
     const lesson = lessons.find(l => l.id === id);
     const pool = managerRequestsByIndustry[currentIndustry][id] || [{ req: "For the investor relations deck, please get me can you solve this query.", check: () => true }];
@@ -2083,6 +2083,13 @@ window.startLesson = (id, questionIndex = null) => {
 
     currentRequest = pool[poolIndex];
     currentRequest._poolIndex = poolIndex; // Track which question this is
+
+    // History API: Update URL if not skipping (prevent duplicate history on PopState)
+    if (!skipPush) {
+        const url = new URL(window.location);
+        url.searchParams.set('lesson', id);
+        window.history.pushState({ view: 'lesson', id: id }, '', url);
+    }
 
     // Show emoji in lesson header but not on dashboard
     const idLabel = document.getElementById('lesson-id-label');
@@ -2180,10 +2187,42 @@ const updateInlineNav = () => {
     }
 };
 
-document.getElementById('back-btn').onclick = () => {
+const showDashboard = () => {
     document.getElementById('dashboard').classList.remove('hidden');
     document.getElementById('lesson-view').classList.add('hidden');
+    document.getElementById('guide-view').classList.add('hidden');
     renderDashboard(); // Refresh to show updated completion badges
+
+    // Update URL to root
+    const url = new URL(window.location);
+    url.searchParams.delete('lesson');
+    window.history.pushState({ view: 'dashboard' }, '', url);
+};
+
+document.getElementById('back-btn').onclick = showDashboard;
+
+// Handle Browser Back/Forward
+window.onpopstate = (event) => {
+    if (event.state && event.state.view === 'lesson') {
+        // We only want to restore the view, not push state again
+        // But startLesson pushes state... we need to modify startLesson or handle this carefully.
+        // For simplicity: restart the lesson but we might duplicate history if we aren't careful.
+        // Actually, startLesson pushes state. If we call it here, we add another entry.
+        // Let's refactor startLesson to accept a 'skipPush' flag? 
+        // Or better: Just manually toggle views here since startLesson does logic we need.
+        // Minimal refactor:
+
+        // Let's rely on the ID from the state. 
+        // We WILL re-run startLesson logic which is good (updates UI). 
+        // But we need to prevent IT from pushing state again.
+        startLesson(event.state.id, null, true);
+    } else {
+        // Default to dashboard
+        document.getElementById('dashboard').classList.remove('hidden');
+        document.getElementById('lesson-view').classList.add('hidden');
+        document.getElementById('guide-view').classList.add('hidden');
+        renderDashboard();
+    }
 };
 
 document.getElementById('prev-lesson-btn').onclick = () => {
@@ -2483,4 +2522,31 @@ document.getElementById('guide-back-btn').addEventListener('click', () => {
     window.scrollTo(0, 0);
 });
 
-initDB();
+initDB().then(() => {
+    // History API: Handle Initial Deep Link
+    const urlParams = new URLSearchParams(window.location.search);
+    const lessonId = urlParams.get('lesson');
+    if (lessonId) {
+        const lesson = lessons.find(l => l.id === lessonId);
+        if (lesson) {
+            startLesson(lessonId, null, true); // true = skipPush (URL is already set)
+        }
+    }
+});
+
+// History API: Handle Initial Deep Link
+(function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const lessonId = urlParams.get('lesson');
+    if (lessonId) {
+        // Wait for DB to be ready? initDB is async-ish (wasm). 
+        // SQL.js load might take a moment.
+        // But initDB() is synchronous in app.js (it does .then on SQL). 
+        // Actually initDB is async.
+        // We should move this INSIDE initDB or wait.
+        // Let's check initDB implementation.
+    }
+})();
+
+// We need to check initDB first.
+// Let's scroll up to find initDB definition.

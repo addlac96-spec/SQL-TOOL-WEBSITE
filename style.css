@@ -271,8 +271,20 @@ header h1 {
 }
 
 #lesson-id-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     color: var(--text-muted);
-    font-size: 0.8rem;
+    margin-bottom: 2px;
+}
+
+#lesson-title {
+    font-size: 1.5rem;
+    /* Visually modest, semantically H1 */
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
 }
 
 #lesson-grid {
