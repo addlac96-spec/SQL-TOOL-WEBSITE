@@ -258,7 +258,7 @@ const lessons = [
         desc: "Learn to apply basic conditional logic to filter your query results.",
         tutorial: {
             concept: "The WHERE clause filters records, ensuring only those that meet a specified condition are returned in the result set.",
-            syntax: "SELECT columns FROM table WHERE condition;",
+            syntax: "SELECT columns FROM table_name WHERE condition;",
             example: "SELECT * FROM products WHERE price > 50;"
         }
     },
@@ -270,7 +270,7 @@ const lessons = [
         desc: "Combine multiple logical statements to build powerful data filters.",
         tutorial: {
             concept: "Logical operators (AND, OR, NOT) allow you to combine multiple conditions in a WHERE clause for more granular filtering.",
-            syntax: "SELECT * FROM table WHERE cond1 AND (cond2 OR cond3);",
+            syntax: "SELECT * FROM table_name WHERE cond1 AND (cond2 OR cond3);",
             example: "SELECT * FROM employees WHERE dept_id = 1 AND role != 'Manager';"
         }
     },
@@ -282,7 +282,7 @@ const lessons = [
         desc: "Identify data points that fall within specific numerical or date ranges.",
         tutorial: {
             concept: "The BETWEEN operator selects values within a given range (inclusive). It works for numbers, text, and dates.",
-            syntax: "SELECT columns FROM table WHERE column BETWEEN val1 AND val2;",
+            syntax: "SELECT columns FROM table_name WHERE column BETWEEN val1 AND val2;",
             example: "SELECT * FROM orders WHERE order_date BETWEEN '2023-01-01' AND '2023-03-31';"
         }
     },
@@ -294,7 +294,7 @@ const lessons = [
         desc: "Use set-based filtering to efficiently match against multiple values.",
         tutorial: {
             concept: "The IN operator allows you to specify multiple values in a WHERE clause, acting as a shorthand for multiple OR conditions.",
-            syntax: "SELECT columns FROM table WHERE column IN (val1, val2, ...);",
+            syntax: "SELECT columns FROM table_name WHERE column IN (val1, val2, ...);",
             example: "SELECT * FROM accounts WHERE status IN ('Active', 'Frozen');"
         }
     },
@@ -306,7 +306,7 @@ const lessons = [
         desc: "Harness pattern matching to identify data strings and specific text motifs.",
         tutorial: {
             concept: "The LIKE operator is used in a WHERE clause to search for a specified pattern in a column using wildcards (% for multiple chars, _ for one).",
-            syntax: "SELECT columns FROM table WHERE column LIKE 'pattern%';",
+            syntax: "SELECT columns FROM table_name WHERE column LIKE 'pattern%';",
             example: "SELECT * FROM patients WHERE name LIKE 'John%';"
         }
     },
@@ -318,7 +318,7 @@ const lessons = [
         desc: "Consolidate your knowledge of row-level filtering and logical operators.",
         tutorial: {
             concept: "Consolidating filtering techniques: using comparison operators (=, <, >), logical connectors, and pattern matching together.",
-            syntax: "-- Combine multiple techniques\nSELECT * FROM table WHERE (cond1 OR cond2) AND cond3;",
+            syntax: "-- Combine multiple techniques\nSELECT * FROM table_name WHERE (cond1 OR cond2) AND cond3;",
             example: "SELECT * FROM marketing_leads WHERE source = 'LinkedIn' AND score > 80;"
         }
     },
@@ -330,7 +330,7 @@ const lessons = [
         desc: "Structure your output by sorting results based on one or more variables.",
         tutorial: {
             concept: "The ORDER BY keyword is used to sort the result-set in ascending (default) or descending order.",
-            syntax: "SELECT columns FROM table ORDER BY column1 [ASC|DESC];",
+            syntax: "SELECT columns FROM table_name ORDER BY column1 [ASC|DESC];",
             example: "SELECT * FROM salaries ORDER BY amount DESC;"
         }
     },
@@ -342,7 +342,7 @@ const lessons = [
         desc: "Put your skills to the test! Combine SELECT, WHERE, patterns, and logic to solve real-world problems.",
         tutorial: {
             concept: "This capstone combines all basic concepts: selecting from tables, filtering with multiple conditions, and ordering results.",
-            syntax: "SELECT [DISTINCT] * FROM table WHERE [multi-conditions] ORDER BY [columns];",
+            syntax: "SELECT [DISTINCT] * FROM table_name WHERE [multi-conditions] ORDER BY [columns];",
             example: "-- Real-world synthesis\nSELECT * FROM usage_logs WHERE duration_mins > 30 ORDER BY date DESC;"
         }
     },
@@ -354,7 +354,7 @@ const lessons = [
         desc: "Move beyond filtering rows — learn to summarize, count, and calculate across entire datasets.",
         tutorial: {
             concept: "So far you've been picking out individual rows. Now you'll learn aggregate functions like COUNT, SUM, and AVG to answer questions about groups of data — like 'what's the average order value?'",
-            syntax: "-- New techniques incoming\nSELECT AGG_FUNC(column) FROM table GROUP BY column;",
+            syntax: "-- New techniques incoming\nSELECT AGG_FUNC(column) FROM table_name GROUP BY column;",
             example: "SELECT COUNT(*) FROM orders;"
         }
     },
@@ -366,7 +366,7 @@ const lessons = [
         desc: "Utilize aggregate functions to perform calculations across multiple rows of data.",
         tutorial: {
             concept: "Aggregate functions perform a calculation on a set of values and return a single value. Common ones are SUM, AVG, and COUNT.",
-            syntax: "SELECT SUM(column), AVG(column), COUNT(column) FROM table;",
+            syntax: "SELECT SUM(column), AVG(column), COUNT(column) FROM table_name;",
             example: "SELECT SUM(amount) FROM transactions;"
         }
     },
@@ -378,7 +378,7 @@ const lessons = [
         desc: "Analyze dataset patterns by grouping related records into summary categories.",
         tutorial: {
             concept: "The GROUP BY statement groups rows that have the same values into summary rows, like 'find the number of customers in each country'.",
-            syntax: "SELECT column, AGG_FUNC(column) FROM table GROUP BY column;",
+            syntax: "SELECT column, AGG_FUNC(column) FROM table_name GROUP BY column;",
             example: "SELECT category, COUNT(*) FROM products GROUP BY category;"
         }
     },
@@ -390,7 +390,7 @@ const lessons = [
         desc: "Apply advanced conditional logic to filter and refine grouped data results.",
         tutorial: {
             concept: "The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.",
-            syntax: "SELECT column, AGG_FUNC(column) FROM table GROUP BY column HAVING condition;",
+            syntax: "SELECT column, AGG_FUNC(column) FROM table_name GROUP BY column HAVING condition;",
             example: "SELECT dept_id, AVG(amount) FROM salaries GROUP BY dept_id HAVING AVG(amount) > 50000;"
         }
     },
@@ -402,7 +402,7 @@ const lessons = [
         desc: "Extract unique data points from your tables by effectively removing duplicates.",
         tutorial: {
             concept: "The SELECT DISTINCT statement is used to return only distinct (different) values.",
-            syntax: "SELECT DISTINCT column1, column2 FROM table;",
+            syntax: "SELECT DISTINCT column1, column2 FROM table_name;",
             example: "SELECT DISTINCT category FROM products;"
         }
     },
@@ -414,7 +414,7 @@ const lessons = [
         desc: "Perform calculations directly within queries using standard mathematical operators.",
         tutorial: {
             concept: "SQL supports standard arithmetic operators to perform calculations directly on numeric columns.",
-            syntax: "SELECT col1 + col2, col1 * 1.1 FROM table;",
+            syntax: "SELECT col1 + col2, col1 * 1.1 FROM table_name;",
             example: "SELECT name, price * quantity AS total FROM orders;"
         }
     },
@@ -426,7 +426,7 @@ const lessons = [
         desc: "Apply advanced scalar functions for precise numerical transformations and rounding.",
         tutorial: {
             concept: "Scalar math functions allow you to perform more complex calculations like rounding or finding absolute values.",
-            syntax: "SELECT ABS(col), CEIL(col), FLOOR(col) FROM table;",
+            syntax: "SELECT ABS(col), CEIL(col), FLOOR(col) FROM table_name;",
             example: "SELECT name, ROUND(price, 2) FROM products;"
         }
     },
@@ -438,7 +438,7 @@ const lessons = [
         desc: "Master precise numeric division and decimal precision in your result sets.",
         tutorial: {
             concept: "Division in SQL often requires attention to data types (integers vs floats) to ensure you get precise decimals.",
-            syntax: "SELECT col1 / col2, CAST(col1 AS FLOAT) / col2 FROM table;",
+            syntax: "SELECT col1 / col2, CAST(col1 AS FLOAT) / col2 FROM table_name;",
             example: "SELECT acc_id, balance / 12 AS monthly_avg FROM accounts;"
         }
     },
@@ -450,7 +450,7 @@ const lessons = [
         desc: "Identify and manage unknown or missing data points to maintain data integrity.",
         tutorial: {
             concept: "NULL represents a missing or unknown value. You use IS NULL and IS NOT NULL to test for it.",
-            syntax: "SELECT * FROM table WHERE column IS [NOT] NULL;",
+            syntax: "SELECT * FROM table_name WHERE column IS [NOT] NULL;",
             example: "SELECT * FROM usage_logs WHERE duration_mins IS NULL;"
         }
     },
@@ -462,7 +462,7 @@ const lessons = [
         desc: "Master conditional logic to categorize data and create dynamic labels like 'High Value' or 'Churn Risk' on the fly.",
         tutorial: {
             concept: "The CASE statement is like an IF-THEN-ELSE decision maker for your queries. It allows you to categorize data on the fly, creating new labels based on conditions.",
-            syntax: "SELECT column, CASE WHEN cond THEN 'Label A' ELSE 'Label B' END AS new_label FROM table;",
+            syntax: "SELECT column, CASE WHEN cond THEN 'Label A' ELSE 'Label B' END AS new_label FROM table_name;",
             example: "SELECT name, CASE WHEN price > 100 THEN 'Expensive' ELSE 'Cheap' END AS price_category FROM products;"
         }
     },
@@ -475,7 +475,7 @@ const lessons = [
         tutorial: {
             concept: "JOINS allow you to combine rows from two or more tables based on a related column between them. INNER JOIN keeps only matches; LEFT JOIN keeps everything from the left table.",
             syntax: "SELECT t1.col, t2.col FROM table1 t1 JOIN table2 t2 ON t1.id = t2.ref_id;",
-            example: "SELECT users.name, orders.amount FROM users JOIN orders ON users.id = orders.user_id;"
+            example: "SELECT users.name, orders.quantity FROM users JOIN orders ON users.user_id = orders.user_id;"
         }
     },
     {
@@ -486,7 +486,7 @@ const lessons = [
         desc: "Manipulate dates and times to analyze trends, cohorts, and schedules with powerful temporal functions.",
         tutorial: {
             concept: "SQL provides powerful functions to manipulate dates: extracting parts (Month/Year), calculating differences, or formatting timestamps for reports.",
-            syntax: "SELECT DATE(column), STRFTIME('%Y-%m', column), DATE_ADD(column, INTERVAL 1 DAY) FROM table;",
+            syntax: "SELECT DATE(column), STRFTIME('%Y-%m', column), DATE_ADD(column, INTERVAL 1 DAY) FROM table_name;",
             example: "SELECT order_id, STRFTIME('%Y', order_date) AS year FROM orders;"
         }
     },
@@ -498,8 +498,8 @@ const lessons = [
         desc: "The ultimate challenge! Combine aggregations, grouping, math, and filtering to solve advanced business scenarios.",
         tutorial: {
             concept: "This Intermediate Capstone combines aggregations, grouping, and math to solve real-world business problems.",
-            syntax: "SELECT group_col, AVG(math_col) FROM table WHERE cond GROUP BY group_col HAVING AVG(math_col) > val;",
-            example: "SELECT category, SUM(price * quantity) FROM orders JOIN products ... GROUP BY category;"
+            syntax: "SELECT group_col, AVG(math_col) FROM table_name WHERE cond GROUP BY group_col HAVING AVG(math_col) > val;",
+            example: "SELECT category, SUM(price * quantity) FROM orders JOIN products ON orders.product_id = products.product_id GROUP BY category;"
         }
     }
 ];
