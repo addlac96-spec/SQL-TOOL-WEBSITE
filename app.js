@@ -271,7 +271,7 @@ const lessons = [
         tutorial: {
             concept: "Logical operators (AND, OR, NOT) allow you to combine multiple conditions in a WHERE clause for more granular filtering.",
             syntax: "SELECT * FROM table_name WHERE cond1 AND (cond2 OR cond3);",
-            example: "SELECT * FROM employees WHERE dept_id = 1 AND role != 'Manager';"
+            example: "SELECT * FROM orders WHERE user_id = 1 AND quantity != 2;"
         }
     },
     {
@@ -295,7 +295,7 @@ const lessons = [
         tutorial: {
             concept: "The IN operator allows you to specify multiple values in a WHERE clause, acting as a shorthand for multiple OR conditions.",
             syntax: "SELECT columns FROM table_name WHERE column IN (val1, val2, ...);",
-            example: "SELECT * FROM accounts WHERE status IN ('Active', 'Frozen');"
+            example: "SELECT * FROM products WHERE category IN ('Electronics', 'Furniture');"
         }
     },
     {
@@ -307,7 +307,7 @@ const lessons = [
         tutorial: {
             concept: "The LIKE operator is used in a WHERE clause to search for a specified pattern in a column using wildcards (% for multiple chars, _ for one).",
             syntax: "SELECT columns FROM table_name WHERE column LIKE 'pattern%';",
-            example: "SELECT * FROM patients WHERE name LIKE 'John%';"
+            example: "SELECT * FROM users WHERE name LIKE 'A%';"
         }
     },
     {
@@ -319,7 +319,7 @@ const lessons = [
         tutorial: {
             concept: "Consolidating filtering techniques: using comparison operators (=, <, >), logical connectors, and pattern matching together.",
             syntax: "-- Combine multiple techniques\nSELECT * FROM table_name WHERE (cond1 OR cond2) AND cond3;",
-            example: "SELECT * FROM marketing_leads WHERE source = 'LinkedIn' AND score > 80;"
+            example: "SELECT * FROM products WHERE category = 'Electronics' AND price > 100;"
         }
     },
     {
@@ -331,7 +331,7 @@ const lessons = [
         tutorial: {
             concept: "The ORDER BY keyword is used to sort the result-set in ascending (default) or descending order.",
             syntax: "SELECT columns FROM table_name ORDER BY column1 [ASC|DESC];",
-            example: "SELECT * FROM salaries ORDER BY amount DESC;"
+            example: "SELECT * FROM products ORDER BY price DESC;"
         }
     },
     {
@@ -343,7 +343,7 @@ const lessons = [
         tutorial: {
             concept: "This capstone combines all basic concepts: selecting from tables, filtering with multiple conditions, and ordering results.",
             syntax: "SELECT [DISTINCT] * FROM table_name WHERE [multi-conditions] ORDER BY [columns];",
-            example: "-- Real-world synthesis\nSELECT * FROM usage_logs WHERE duration_mins > 30 ORDER BY date DESC;"
+            example: "-- Real-world synthesis\nSELECT * FROM orders WHERE quantity > 1 ORDER BY order_date DESC;"
         }
     },
     {
@@ -367,7 +367,7 @@ const lessons = [
         tutorial: {
             concept: "Aggregate functions perform a calculation on a set of values and return a single value. Common ones are SUM, AVG, and COUNT.",
             syntax: "SELECT SUM(column), AVG(column), COUNT(column) FROM table_name;",
-            example: "SELECT SUM(amount) FROM transactions;"
+            example: "SELECT SUM(price) FROM products;"
         }
     },
     {
@@ -391,7 +391,7 @@ const lessons = [
         tutorial: {
             concept: "The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.",
             syntax: "SELECT column, AGG_FUNC(column) FROM table_name GROUP BY column HAVING condition;",
-            example: "SELECT dept_id, AVG(amount) FROM salaries GROUP BY dept_id HAVING AVG(amount) > 50000;"
+            example: "SELECT category, AVG(price) FROM products GROUP BY category HAVING AVG(price) > 50;"
         }
     },
     {
@@ -439,7 +439,7 @@ const lessons = [
         tutorial: {
             concept: "Division in SQL often requires attention to data types (integers vs floats) to ensure you get precise decimals.",
             syntax: "SELECT col1 / col2, CAST(col1 AS FLOAT) / col2 FROM table_name;",
-            example: "SELECT acc_id, balance / 12 AS monthly_avg FROM accounts;"
+            example: "SELECT product_id, price / 12 AS monthly_cost FROM products;"
         }
     },
     {
@@ -451,7 +451,7 @@ const lessons = [
         tutorial: {
             concept: "NULL represents a missing or unknown value. You use IS NULL and IS NOT NULL to test for it.",
             syntax: "SELECT * FROM table_name WHERE column IS [NOT] NULL;",
-            example: "SELECT * FROM usage_logs WHERE duration_mins IS NULL;"
+            example: "SELECT * FROM users WHERE joined_date IS NULL;"
         }
     },
     {
