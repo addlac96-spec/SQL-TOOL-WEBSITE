@@ -477,24 +477,54 @@ header h1 {
     border-color: var(--accent);
 }
 
-.tables-preview {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: var(--radius);
-    padding: 0.75rem 1rem;
+/* Editor Workspace Sidebar */
+.editor-workspace {
+    display: flex;
+    gap: 1rem;
+    flex: 1 1 50%;
+    min-height: 250px;
 }
 
-.tables-preview h3 {
+.schema-sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.schema-header {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.schema-header h3 {
     font-size: 0.85rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-weight: 600;
 }
 
+.schema-sub {
+    font-size: 0.7rem;
+    color: var(--accent);
+    opacity: 0.8;
+}
+
+#tables-list {
+    padding: 1rem;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
 .table-schema-item {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .table-schema-item summary {
@@ -509,6 +539,33 @@ header h1 {
 .table-schema-item summary:hover {
     padding-left: 0.5rem;
     color: #fff;
+}
+
+/* Clickable schema columns */
+.schema-column {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    padding: 0.3rem 0.5rem 0.3rem 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    border-radius: 4px;
+    display: block;
+}
+
+.schema-column:hover {
+    background: rgba(96, 165, 250, 0.1);
+    color: #fff;
+}
+
+.schema-table-name {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.schema-table-name:hover {
+    color: #fff;
+    text-decoration: underline;
 }
 
 /* Sidebar Table Previews */
@@ -585,22 +642,60 @@ header h1 {
     align-items: center;
 }
 
-.code-editor-container {
+.editor-main {
     flex-grow: 1;
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    min-width: 0;
 }
 
-#sql-editor {
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    color: var(--accent);
-    font-family: var(--font-mono);
+/* Override CodeMirror styling */
+.code-editor-container {
+    flex-grow: 1;
+    position: relative;
+    /* CodeMirror needs an absolute/relative positioning context */
+    min-height: 200px;
+}
+
+.CodeMirror {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100% !important;
+    font-family: var(--font-mono) !important;
     font-size: 1.1rem;
-    resize: none;
-    outline: none;
+    padding: 0.5rem 0;
+}
+
+/* Ensure gutters don't overlap with the text */
+.CodeMirror-gutters {
+    background: transparent;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    width: 45px !important;
+    padding-right: 10px !important;
+}
+
+.CodeMirror-linenumber {
+    padding: 0 5px 0 0 !important;
+}
+
+/* Push the actual text to the right to clear the gutter */
+.CodeMirror-sizer {
+    margin-left: 55px !important;
+}
+
+.CodeMirror-lines {
+    padding-left: 10px !important;
+}
+
+/* Hide original textarea */
+#sql-editor {
+    display: none;
 }
 
 .editor-actions {
