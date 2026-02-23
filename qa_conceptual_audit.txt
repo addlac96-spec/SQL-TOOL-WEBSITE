@@ -1,0 +1,381 @@
+[ecommerce] Lesson 104 Q1: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: Customer support reported an issue. I need to verify users named 'Alice Smith' who joined in '2023-01-15' to troubleshoot.
+  Check: (res, sql) => sql.toLowerCase().includes("alice") && sql.toLowerCase().includes("2023-01-15")
+[ecommerce] Lesson 104 Q3: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: The merchandising team is finalizing the new catalog. Please extract 'Electronics' products that are priced under $50.00 for their review.
+  Check: (res, sql) => sql.toLowerCase().includes("electronics") && sql.toLowerCase().includes("< 50")
+[ecommerce] Lesson 104 Q4: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: The merchandising team is finalizing the new catalog. Please extract users who joined either in Jan or Feb 2023 for their review.
+  Check: (res, sql) => (sql.toLowerCase().includes("2023-01") || sql.toLowerCase().includes("2023-02"))
+[ecommerce] Lesson 104 Q5: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: To prepare for the board meeting, I need an overview of orders with quantity > 1 and product_id 101.
+  Check: (res, sql) => sql.toLowerCase().includes("> 1") && sql.toLowerCase().includes("101")
+[ecommerce] Lesson 104 Q6: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: The merchandising team is finalizing the new catalog. Please extract products that are 'Furniture' and cost less than $200 for their review.
+  Check: (res, sql) => sql.toLowerCase().includes("furniture") && sql.toLowerCase().includes("< 200")
+[ecommerce] Lesson 104 Q9: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: We found a discrepancy in the logs. Please pull products that are cheaper than $50 or in category 'Furniture' to help us investigate.
+  Check: (res, sql) => sql.toLowerCase().includes("< 50") || sql.toLowerCase().includes("furniture")
+[ecommerce] Lesson 104 Q11: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: Our Q3 sales analysis is coming up. I need you to pull users who joined after March AND are named 'Diana Prince'. Make sure it's accurate.
+  Check: (res, sql) => sql.toLowerCase().includes("> '2023-03") && sql.toLowerCase().includes("diana")
+[ecommerce] Lesson 209 Q1: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: Customer support reported an issue. I need to verify users whose email is NULL to troubleshoot.
+  Check: (res, sql) => sql.toLowerCase().includes("is null")
+[ecommerce] Lesson 209 Q2: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: Our Q3 sales analysis is coming up. I need you to pull users that have an email address recorded. Make sure it's accurate.
+  Check: (res, sql) => sql.toLowerCase().includes("is not null")
+[ecommerce] Lesson 209 Q3: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: The merchandising team is finalizing the new catalog. Please extract orders where the order_date is NULL for their review.
+  Check: (res, sql) => sql.toLowerCase().includes("order_date") && sql.toLowerCase().includes("is null")
+[ecommerce] Lesson 209 Q4: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: Our Q3 sales analysis is coming up. I need you to pull products where the category is NOT NULL. Make sure it's accurate.
+  Check: (res, sql) => sql.toLowerCase().includes("category") && sql.toLowerCase().includes("is not null")
+[ecommerce] Lesson 209 Q5: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: Customer support reported an issue. I need to verify all orders where quantity is NULL to troubleshoot.
+  Check: (res, sql) => sql.toLowerCase().includes("quantity") && sql.toLowerCase().includes("is null")
+[ecommerce] Lesson 209 Q6: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: The merchandising team is finalizing the new catalog. Please extract users where the joined_date is NOT NULL for their review.
+  Check: (res, sql) => sql.toLowerCase().includes("joined_date") && sql.toLowerCase().includes("is not null")
+[ecommerce] Lesson 209 Q7: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: Our Q3 sales analysis is coming up. I need you to pull products where the name is NULL. Make sure it's accurate.
+  Check: (res, sql) => sql.toLowerCase().includes("name") && sql.toLowerCase().includes("is null")
+[ecommerce] Lesson 209 Q8: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We need to evaluate our pricing strategy. Get me a list of orders where product_id is NOT NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("product_id") && sql.toLowerCase().includes("is not null")
+[ecommerce] Lesson 209 Q9: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: The merchandising team is finalizing the new catalog. Please extract a count of the number of users with NULL email addresses for their review.
+  Check: (res, sql) => sql.toLowerCase().includes("count") && sql.toLowerCase().includes("is null")
+[ecommerce] Lesson 209 Q10: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: I'm analyzing our top-performing categories. Can you list users where name is NOT NULL and email IS NULL?
+  Check: (res, sql) => sql.toLowerCase().includes("is not null") && sql.toLowerCase().includes("is null")
+[ecommerce] Lesson 209 Q11: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: Customer support reported an issue. I need to verify all products where price is NOT NULL to troubleshoot.
+  Check: (res, sql) => sql.toLowerCase().includes("price") && sql.toLowerCase().includes("is not null")
+[ecommerce] Lesson 212 Q5: Missing required SQL concept validation '['date', 'strftime', 'now']'.
+  Req: Let's check our inventory health. Show me the date 30 days after each user joined.
+  Check: (res, sql) => sql.toLowerCase().includes("'+30 days'")
+[ecommerce] Lesson 212 Q7: Missing required SQL concept validation '['date', 'strftime', 'now']'.
+  Req: Customer support reported an issue. I need to verify the order date minus 1 month to troubleshoot.
+  Check: (res, sql) => sql.toLowerCase().includes("'-1 month'")
+[ecommerce] Lesson 212 Q11: Missing required SQL concept validation '['date', 'strftime', 'now']'.
+  Req: I'm analyzing our top-performing categories. Can you list the date 1 year after joining for each user?
+  Check: (res, sql) => sql.toLowerCase().includes("'+1 year'")
+[saas] Lesson 104 Q1: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: We're preparing the monthly active user report. I need you to show me active subscriptions on the 'Basic' plan.
+  Check: (res, sql) => sql.toLowerCase().includes("active") && sql.toLowerCase().includes("basic")
+[saas] Lesson 104 Q2: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: I need to analyze our churn rate. Can you pull a list of usage logs that lasted more than 30 mins for the 'Dashboard' feature?
+  Check: (res, sql) => sql.toLowerCase().includes("dashboard") && sql.toLowerCase().includes("> 30")
+[saas] Lesson 104 Q3: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: I'm investigating a potential data inconsistency. Show me marketing leads have a score above 50 and status 'Qualified'.
+  Check: (res, sql) => sql.toLowerCase().includes("> 50") && sql.toLowerCase().includes("qualified")
+[saas] Lesson 104 Q5: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: I need to analyze our churn rate. Can you pull a list of 'Pro' plans with monthly revenue over $50?
+  Check: (res, sql) => sql.toLowerCase().includes("pro") && sql.toLowerCase().includes("> 50")
+[saas] Lesson 104 Q6: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: We're monitoring user engagement for the new feature. Please retrieve leads from 'Google' or 'Facebook'.
+  Check: (res, sql) => sql.toLowerCase().includes("google") || sql.toLowerCase().includes("facebook")
+[saas] Lesson 104 Q7: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: We're planning a database migration. I need a dump of usage logs for 'Billing' or 'Dashboard'.
+  Check: (res, sql) => sql.toLowerCase().includes("billing") || sql.toLowerCase().includes("dashboard")
+[saas] Lesson 104 Q9: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: I need to analyze our churn rate. Can you pull a list of marketing leads with a score < 20 and source 'Direct'?
+  Check: (res, sql) => sql.toLowerCase().includes("< 20") && sql.toLowerCase().includes("direct")
+[saas] Lesson 104 Q11: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: The engineering team needs to debug a login issue. Find 'Enterprise' subscriptions started in 2023 for them.
+  Check: (res, sql) => sql.toLowerCase().includes("enterprise") && sql.toLowerCase().includes("2023")
+[saas] Lesson 105 Q7: Missing required SQL concept validation '['between']'.
+  Req: The engineering team needs to debug a login issue. Find subscriptions on 'Basic', 'Pro', or 'Enterprise' plans for them.
+  Check: (res, sql) => sql.toLowerCase().includes("in (")
+[saas] Lesson 105 Q8: Missing required SQL concept validation '['between']'.
+  Req: Compliance needs a report on user data access. Please find usage logs for 'Dashboard', 'Login', or 'Billing'.
+  Check: (res, sql) => sql.toLowerCase().includes("in (")
+[saas] Lesson 105 Q9: Missing required SQL concept validation '['between']'.
+  Req: We're monitoring user engagement for the new feature. Please retrieve leads came from 'Google', 'Bing', or 'Yahoo'.
+  Check: (res, sql) => sql.toLowerCase().includes("in (")
+[saas] Lesson 105 Q10: Missing required SQL concept validation '['between']'.
+  Req: Compliance needs a report on user data access. Please find subscriptions with statuses 'Active' or 'Trialing'.
+  Check: (res, sql) => sql.toLowerCase().includes("in (")
+[saas] Lesson 105 Q11: Missing required SQL concept validation '['between']'.
+  Req: To optimize our onboarding flow, please extract usage logs for user IDs 501, 502, or 505.
+  Check: (res, sql) => sql.toLowerCase().includes("in (")
+[saas] Lesson 106 Q2: Missing required SQL concept validation '['in']'.
+  Req: To optimize our onboarding flow, please extract logs didn't come from LinkedIn or Google? with NOT.
+  Check: (res, sql) => sql.toLowerCase().includes("not in") && (sql.toLowerCase().includes("linkedin") || sql.toLowerCase().includes("google"))
+[saas] Lesson 106 Q11: Missing required SQL concept validation '['in']'.
+  Req: For our Q1 growth analysis, please get me statuses NOT IN 'Cancelled', 'Paused'. Use NOT IN.
+  Check: (res, sql) => sql.toLowerCase().includes("not in") && (sql.toLowerCase().includes("cancelled") || sql.toLowerCase().includes("paused"))
+[saas] Lesson 108 Q1: Missing required SQL concept validation '['not']'.
+  Req: We're planning a database migration. I need a dump of a count of the total number of subscriptions we have.
+  Check: (res, sql) => sql.toLowerCase().includes("count(*)")
+[saas] Lesson 108 Q2: Missing required SQL concept validation '['not']'.
+  Req: I need to analyze our churn rate. Can you pull a list of what is the average duration of our usage logs?
+  Check: (res, sql) => sql.toLowerCase().includes("avg(duration_mins)")
+[saas] Lesson 108 Q3: Missing required SQL concept validation '['not']'.
+  Req: The engineering team needs to debug a login issue. Find the total monthly revenue from all customers for them.
+  Check: (res, sql) => sql.toLowerCase().includes("sum(monthly_revenue)")
+[saas] Lesson 108 Q4: Missing required SQL concept validation '['not']'.
+  Req: I need to analyze our churn rate. Can you pull a list of what is the highest lead score we've ever had?
+  Check: (res, sql) => sql.toLowerCase().includes("max(score)")
+[saas] Lesson 108 Q5: Missing required SQL concept validation '['not']'.
+  Req: For our Q1 growth analysis, please get me what is the lowest monthly revenue recorded.
+  Check: (res, sql) => sql.toLowerCase().includes("min(monthly_revenue)")
+[saas] Lesson 108 Q6: Missing required SQL concept validation '['not']'.
+  Req: I need to analyze our churn rate. Can you pull a list of a count of the number of marketing leads in our database?
+  Check: (res, sql) => sql.toLowerCase().includes("count(")
+[saas] Lesson 108 Q7: Missing required SQL concept validation '['not']'.
+  Req: We're preparing the monthly active user report. I need you to show me what is the total duration minutes logged in usage.
+  Check: (res, sql) => sql.toLowerCase().includes("sum(duration_mins)")
+[saas] Lesson 108 Q8: Missing required SQL concept validation '['not']'.
+  Req: Compliance needs a report on user data access. Please find the average lead score.
+  Check: (res, sql) => sql.toLowerCase().includes("avg(score)")
+[saas] Lesson 108 Q9: Missing required SQL concept validation '['not']'.
+  Req: I need to analyze our churn rate. Can you pull a list of what is the earliest subscription start date?
+  Check: (res, sql) => sql.toLowerCase().includes("min(start_date)")
+[saas] Lesson 108 Q10: Missing required SQL concept validation '['not']'.
+  Req: For our Q1 growth analysis, please get me what is the latest log date recorded.
+  Check: (res, sql) => (sql.toLowerCase().includes("max(log_date)") || sql.toLowerCase().includes("max(usage_date)"))
+[saas] Lesson 108 Q11: Missing required SQL concept validation '['not']'.
+  Req: We're preparing the monthly active user report. I need you to show me the count of active subscriptions are there? (Count with filter).
+  Check: (res, sql) => sql.toLowerCase().includes("count") && sql.toLowerCase().includes("active")
+[saas] Lesson 209 Q1: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're preparing the monthly active user report. I need you to show me leads where the status is NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("is null")
+[saas] Lesson 209 Q2: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: To optimize our onboarding flow, please extract usage logs where the feature is NOT NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("is not null")
+[saas] Lesson 209 Q3: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: The engineering team needs to debug a login issue. Find subscriptions where start_date is NULL for them.
+  Check: (res, sql) => sql.toLowerCase().includes("start_date") && sql.toLowerCase().includes("is null")
+[saas] Lesson 209 Q4: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: I need to analyze our churn rate. Can you pull a list of leads where email is NOT NULL?
+  Check: (res, sql) => sql.toLowerCase().includes("email") && sql.toLowerCase().includes("is not null")
+[saas] Lesson 209 Q5: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: Compliance needs a report on user data access. Please find usage logs where duration_mins is NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("duration_mins") && sql.toLowerCase().includes("is null")
+[saas] Lesson 209 Q6: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're monitoring user engagement for the new feature. Please retrieve subscriptions where monthly_revenue is NOT NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("monthly_revenue") && sql.toLowerCase().includes("is not null")
+[saas] Lesson 209 Q7: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: I'm investigating a potential data inconsistency. Show me leads where source is NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("source") && sql.toLowerCase().includes("is null")
+[saas] Lesson 209 Q8: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're preparing the monthly active user report. I need you to show me usage logs where user_id is NOT NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("user_id") && sql.toLowerCase().includes("is not null")
+[saas] Lesson 209 Q9: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're preparing the monthly active user report. I need you to show me a count of leads where status IS NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("count") && sql.toLowerCase().includes("is null")
+[saas] Lesson 209 Q10: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: I'm investigating a potential data inconsistency. Show me subscriptions where status is NOT NULL and plan IS NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("is not null") && sql.toLowerCase().includes("is null")
+[saas] Lesson 209 Q11: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We need to audit our subscription tiers. List leads where score is NOT NULL for review.
+  Check: (res, sql) => sql.toLowerCase().includes("score") && sql.toLowerCase().includes("is not null")
+[hr] Lesson 104 Q1: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: We're finalizing the annual headcount report. Please list managers who were hired after 2005.
+  Check: (res, sql) => sql.toLowerCase().includes("manager") && sql.toLowerCase().includes("> '2005")
+[hr] Lesson 104 Q2: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: Legal requires a report on hiring dates. Find sales employees (dept 2) with a score above 7 immediately.
+  Check: (res, sql) => sql.toLowerCase().includes("dept_id = 2") && sql.toLowerCase().includes("> 7")
+[hr] Lesson 104 Q3: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: We're finalizing the annual headcount report. Please list all employees hired in 2005 who have a performance score of 10.
+  Check: (res, sql) => sql.toLowerCase().includes("2005") && sql.toLowerCase().includes("score = 10")
+[hr] Lesson 104 Q4: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: To prepare for the performance review cycle, I need salaries in 'USD' above 60000.
+  Check: (res, sql) => sql.toLowerCase().includes("usd") && sql.toLowerCase().includes("> 60000")
+[hr] Lesson 104 Q5: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: To prepare for the performance review cycle, I need admin staff (role = 'Admin') in dept 1.
+  Check: (res, sql) => sql.toLowerCase().includes("admin") && sql.toLowerCase().includes("dept_id = 1")
+[hr] Lesson 104 Q6: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: For the upcoming diversity and inclusion audit, please extract who was hired on '2006-01-15' and is in Sales.
+  Check: (res, sql) => sql.toLowerCase().includes("2006-01-15") && sql.toLowerCase().includes("sales")
+[hr] Lesson 104 Q7: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: I'm updated the employee directory. Please pull scranton departments (dept 2) named 'Sales'.
+  Check: (res, sql) => sql.toLowerCase().includes("scranton") && sql.toLowerCase().includes("sales")
+[hr] Lesson 104 Q8: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: Legal requires a report on hiring dates. Find michael Scott's salary (emp_id 1) immediately.
+  Check: (res, sql) => sql.toLowerCase().includes("emp_id = 1")
+[hr] Lesson 104 Q9: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: The benefits team needs to verify employee eligibility. Find employees with score 9 OR score 10.
+  Check: (res, sql) => sql.toLowerCase().includes("9") || sql.toLowerCase().includes("10")
+[hr] Lesson 104 Q10: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: I'm updated the employee directory. Please pull hire dates between 2005 and 2006 for Managers.
+  Check: (res, sql) => sql.toLowerCase().includes("2005") && sql.toLowerCase().includes("manager")
+[hr] Lesson 106 Q10: Missing required SQL concept validation '['in']'.
+  Req: We're finalizing the annual headcount report. Please list employees not in dept 2 or 3 using NOT IN.
+  Check: (res, sql) => sql.toLowerCase().includes("not in") && (sql.toLowerCase().includes("2") || sql.toLowerCase().includes("3"))
+[hr] Lesson 207 Q2: Missing required SQL concept validation '['round', 'abs']'.
+  Req: We need to verify salary bands. Please get me the ceiling (CEIL) of performance_score divided by 2.
+  Check: (res, sql) => sql.toLowerCase().includes("ceil")
+[hr] Lesson 209 Q1: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: The benefits team needs to verify employee eligibility. Find salaries where last_raise is NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("is null")
+[hr] Lesson 209 Q2: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: Legal requires a report on hiring dates. Find employees where performance_score is NOT NULL immediately.
+  Check: (res, sql) => sql.toLowerCase().includes("is not null")
+[hr] Lesson 209 Q3: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're conducting a compensation review. I need to see employees where hire_date is NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("hire_date") && sql.toLowerCase().includes("is null")
+[hr] Lesson 209 Q4: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're analyzing retention rates by department. List salaries where currency is NOT NULL for me.
+  Check: (res, sql) => sql.toLowerCase().includes("currency") && sql.toLowerCase().includes("is not null")
+[hr] Lesson 209 Q5: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're conducting a compensation review. I need to see employees where dept_id is NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("dept_id") && sql.toLowerCase().includes("is null")
+[hr] Lesson 209 Q6: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're finalizing the annual headcount report. Please list departments where location is NOT NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("location") && sql.toLowerCase().includes("is not null")
+[hr] Lesson 209 Q7: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We need to track our recruitment pipeline. Can you show me employees where role is NULL?
+  Check: (res, sql) => sql.toLowerCase().includes("role") && sql.toLowerCase().includes("is null")
+[hr] Lesson 209 Q8: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: Legal requires a report on hiring dates. Find salaries where amount is NOT NULL immediately.
+  Check: (res, sql) => sql.toLowerCase().includes("amount") && sql.toLowerCase().includes("is not null")
+[hr] Lesson 209 Q9: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: I'm updated the employee directory. Please pull a count of employees where performance_score IS NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("count") && sql.toLowerCase().includes("is null")
+[hr] Lesson 209 Q10: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: For the upcoming diversity and inclusion audit, please extract salaries where last_raise is NOT NULL and amount IS NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("is not null") && sql.toLowerCase().includes("is null")
+[hr] Lesson 209 Q11: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're analyzing retention rates by department. List employees where name is NOT NULL for me.
+  Check: (res, sql) => sql.toLowerCase().includes("name") && sql.toLowerCase().includes("is not null")
+[hr] Lesson 212 Q8: Missing required SQL concept validation '['date', 'strftime', 'now']'.
+  Req: Vest date. Calculate date 365 days after hire_date.
+  Check: (res, sql) => sql.toLowerCase().includes("+365 days")
+[healthcare] Lesson 104 Q1: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: We're analyzing admission rates for the last quarter. Extract diagnostic doctors (ID 10) with more than 5 years exp.
+  Check: (res, sql) => sql.toLowerCase().includes("10") && sql.toLowerCase().includes("> 5")
+[healthcare] Lesson 104 Q2: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: The Chief Medical Officer needs a report on patient outcomes. Find completed appointments that were for a 'Checkup'.
+  Check: (res, sql) => sql.toLowerCase().includes("completed") && sql.toLowerCase().includes("checkup")
+[healthcare] Lesson 104 Q3: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: For the departmental budget review, please get me 'Pending' appointments for Patient #2.
+  Check: (res, sql) => sql.toLowerCase().includes("pending") && sql.toLowerCase().includes("patient_id = 2")
+[healthcare] Lesson 104 Q5: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: We're analyzing admission rates for the last quarter. Extract 'Scheduled' appointments on '2023-10-01'.
+  Check: (res, sql) => sql.toLowerCase().includes("scheduled") && sql.toLowerCase().includes("2023-10-01")
+[healthcare] Lesson 104 Q6: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: For the departmental budget review, please get me patients with O- blood type named 'John Doe'.
+  Check: (res, sql) => sql.toLowerCase().includes("o-") && sql.toLowerCase().includes("john doe")
+[healthcare] Lesson 104 Q7: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: We're updating our patient demographic records. I need 'Surgery' specialists with < 20 years exp.
+  Check: (res, sql) => sql.toLowerCase().includes("surgery") && sql.toLowerCase().includes("< 20")
+[healthcare] Lesson 104 Q8: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: We're updating our patient demographic records. I need patients with B+ blood type born after 1990.
+  Check: (res, sql) => sql.toLowerCase().includes("b+") && sql.toLowerCase().includes("> '1990")
+[healthcare] Lesson 104 Q9: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: For our medication inventory compliance check, please list 'Completed' Checkups for patient #1.
+  Check: (res, sql) => sql.toLowerCase().includes("completed") && sql.toLowerCase().includes("checkup") && sql.toLowerCase().includes("1")
+[healthcare] Lesson 104 Q10: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: The Chief Medical Officer needs a report on patient outcomes. Find pediatrics doctors with > 15 years exp.
+  Check: (res, sql) => sql.toLowerCase().includes("pediatrics") && sql.toLowerCase().includes("> 15")
+[healthcare] Lesson 104 Q11: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: For the departmental budget review, please get me 'Cancelled' fever reasons.
+  Check: (res, sql) => sql.toLowerCase().includes("cancelled") && sql.toLowerCase().includes("fever")
+[healthcare] Lesson 106 Q9: Missing required SQL concept validation '['in']'.
+  Req: Billing needs to reconcile some patient accounts. Please find statuses NOT IN 'Pending', 'Cancelled'.
+  Check: (res, sql) => sql.toLowerCase().includes("not in") && (sql.toLowerCase().includes("pending") || sql.toLowerCase().includes("cancelled"))
+[healthcare] Lesson 202 Q3: Missing required SQL concept validation '['sum', 'avg', 'max', 'min']'.
+  Req: To track treatment efficacy, please pull a list of the count of distinct specialties do our doctors cover.
+  Check: (res, sql) => sql.toLowerCase().includes("count(distinct specialty)")
+[healthcare] Lesson 209 Q1: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: For our medication inventory compliance check, please list appointments where the reason is NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("is null")
+[healthcare] Lesson 209 Q2: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We need to audit access to sensitive patient files. Show me patients who have a blood type recorded (NOT NULL).
+  Check: (res, sql) => sql.toLowerCase().includes("is not null")
+[healthcare] Lesson 209 Q3: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're updating our patient demographic records. I need doctors where specialty is NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("specialty") && sql.toLowerCase().includes("is null")
+[healthcare] Lesson 209 Q4: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: To track treatment efficacy, please pull a list of appointments where status is NOT NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("status") && sql.toLowerCase().includes("is not null")
+[healthcare] Lesson 209 Q5: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: To track treatment efficacy, please pull a list of patients where gender is NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("gender") && sql.toLowerCase().includes("is null")
+[healthcare] Lesson 209 Q6: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're analyzing admission rates for the last quarter. Extract doctors where name is NOT NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("name") && sql.toLowerCase().includes("is not null")
+[healthcare] Lesson 209 Q7: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: For the departmental budget review, please get me appointments where date is NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("date") && sql.toLowerCase().includes("is null")
+[healthcare] Lesson 209 Q8: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're updating our patient demographic records. I need patients where dob is NOT NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("dob") && sql.toLowerCase().includes("is not null")
+[healthcare] Lesson 209 Q9: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're analyzing admission rates for the last quarter. Extract a count of appointments where reason IS NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("count") && sql.toLowerCase().includes("is null")
+[healthcare] Lesson 209 Q10: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: For the departmental budget review, please get me doctors where years_exp is NOT NULL and specialty IS NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("is not null") && sql.toLowerCase().includes("is null")
+[healthcare] Lesson 209 Q11: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: For the departmental budget review, please get me patients where blood_type is NOT NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("blood_type") && sql.toLowerCase().includes("is not null")
+[finance] Lesson 104 Q1: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: I need to investigate a variance in the quarterly report. Find 'Income' transactions with amounts above 1000.
+  Check: (res, sql) => sql.toLowerCase().includes("income") && sql.toLowerCase().includes("> 1000")
+[finance] Lesson 104 Q2: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: We're closing the books for the fiscal year. Please list 'Savings' accounts with a balance above 10000.
+  Check: (res, sql) => sql.toLowerCase().includes("savings") && sql.toLowerCase().includes("> 10000")
+[finance] Lesson 104 Q3: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: The external auditors are arriving next week. I need you to pull assets named 'Stocks' or 'Bonds'.
+  Check: (res, sql) => (sql.toLowerCase().includes("stocks") || sql.toLowerCase().includes("bonds"))
+[finance] Lesson 104 Q4: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: I need to investigate a variance in the quarterly report. Find transactions on '2023-01-15' that were 'Withdrawals'.
+  Check: (res, sql) => sql.toLowerCase().includes("2023-01-15") && sql.toLowerCase().includes("withdrawal")
+[finance] Lesson 104 Q5: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: We're reconciling the expense accounts. Please extract accounts in 'Main' branch with ID 1.
+  Check: (res, sql) => sql.toLowerCase().includes("main") && sql.toLowerCase().includes("account_id = 1")
+[finance] Lesson 104 Q6: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: I need to verify the tax liability for this period. Show me who has a 'Savings' account in the 'West' branch.
+  Check: (res, sql) => sql.toLowerCase().includes("savings") && sql.toLowerCase().includes("west")
+[finance] Lesson 104 Q7: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: I need to verify the tax liability for this period. Show me 'Real Estate' assets with value > 500000.
+  Check: (res, sql) => sql.toLowerCase().includes("real estate") && sql.toLowerCase().includes("> 500000")
+[finance] Lesson 104 Q8: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: We're reconciling the expense accounts. Please extract transactions for account_id 1 with ID > 5.
+  Check: (res, sql) => sql.toLowerCase().includes("account_id = 1") && sql.toLowerCase().includes("transaction_id > 5")
+[finance] Lesson 104 Q9: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: For the investor relations deck, please get me accounts balance 500 OR balance 1000.
+  Check: (res, sql) => sql.toLowerCase().includes("500") || sql.toLowerCase().includes("1000")
+[finance] Lesson 104 Q10: Missing required SQL concept validation '['and', 'or', 'not']'.
+  Req: We're closing the books for the fiscal year. Please list transactions between 1 PM and 3 PM using OR.
+  Check: (res, sql) => sql.toLowerCase().includes("1:00 pm") || sql.toLowerCase().includes("3:00 pm")
+[finance] Lesson 106 Q10: Missing required SQL concept validation '['in']'.
+  Req: We're reconciling the expense accounts. Please extract statuses NOT IN 'Closed', 'Defaulted'.
+  Check: (res, sql) => sql.toLowerCase().includes("not in") && (sql.toLowerCase().includes("closed") || sql.toLowerCase().includes("defaulted"))
+[finance] Lesson 209 Q1: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We need to audit all transactions above the approval threshold. Find assets where the currency is NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("is null")
+[finance] Lesson 209 Q2: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: I need to investigate a variance in the quarterly report. Find transactions where the category is NOT NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("is not null")
+[finance] Lesson 209 Q3: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're closing the books for the fiscal year. Please list accounts where opening_date is NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("opening_date") && sql.toLowerCase().includes("is null")
+[finance] Lesson 209 Q4: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: For the investor relations deck, please get me loans where status is NOT NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("status") && sql.toLowerCase().includes("is not null")
+[finance] Lesson 209 Q5: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're reconciling the expense accounts. Please extract transactions where date is NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("date") && sql.toLowerCase().includes("is null")
+[finance] Lesson 209 Q6: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: To verify our liquidity position, I need a list of accounts where balance is NOT NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("balance") && sql.toLowerCase().includes("is not null")
+[finance] Lesson 209 Q7: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: I need to verify the tax liability for this period. Show me assets where type is NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("type") && sql.toLowerCase().includes("is null")
+[finance] Lesson 209 Q8: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We need to audit all transactions above the approval threshold. Find loans where interest_rate is NOT NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("interest_rate") && sql.toLowerCase().includes("is not null")
+[finance] Lesson 209 Q9: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're closing the books for the fiscal year. Please list a count of transactions where category IS NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("count") && sql.toLowerCase().includes("is null")
+[finance] Lesson 209 Q10: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: To verify our liquidity position, I need a list of accounts where status is NOT NULL and branch IS NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("is not null") && sql.toLowerCase().includes("is null")
+[finance] Lesson 209 Q11: Missing required SQL concept validation '['limit', 'offset']'.
+  Req: We're analyzing cost centers for efficiency. List assets where value is NOT NULL.
+  Check: (res, sql) => sql.toLowerCase().includes("value") && sql.toLowerCase().includes("is not null")

@@ -70,41 +70,11 @@ const INDUSTRY_CONFIGS = {
             INSERT INTO marketing_leads VALUES (1, 'john@startup.io', 'LinkedIn', 'Qualified', 85);
             INSERT INTO marketing_leads VALUES (2, 'sarah@web.com', 'Google', 'New', 40);
             INSERT INTO marketing_leads VALUES (3, 'mike@tech.co', 'LinkedIn', 'Qualified', 90);
-        
-            INSERT INTO users VALUES (4, 'Eve Adams', 'eve@saas.com', 'Enterprise', '2023-01-20');
-            INSERT INTO users VALUES (5, 'Frank White', 'frank@example.com', 'Pro', '2023-04-10');
-            INSERT INTO users VALUES (6, 'Grace Kelly', 'grace@example.com', 'Basic', '2023-07-05');
-            INSERT INTO users VALUES (7, 'Hank Moody', 'hank@example.com', 'Pro', '2023-11-20');
-            INSERT INTO users VALUES (8, 'Ivy Green', 'ivy@example.com', 'Enterprise', '2024-01-15');
-            
-            INSERT INTO servers VALUES (4, 'us-west', 'Offline', 45.00);
-            INSERT INTO servers VALUES (5, 'eu-west', 'Active', 120.00);
-            INSERT INTO servers VALUES (6, 'ap-south', 'Maintenance', 80.00);
-            INSERT INTO servers VALUES (7, 'us-east', 'Active', 250.00);
-            INSERT INTO servers VALUES (8, 'us-west', 'Active', 90.00);
-            
-            INSERT INTO logs VALUES (104, 4, 'Crash', '2023-05-10');
-            INSERT INTO logs VALUES (105, 5, 'Update', '2023-06-12');
-            INSERT INTO logs VALUES (106, 6, 'Restart', '2023-08-01');
-            INSERT INTO logs VALUES (107, 7, 'Deploy', '2023-09-20');
-            INSERT INTO logs VALUES (108, 8, 'Error', '2023-10-15');
-            INSERT INTO logs VALUES (109, 1, 'Patch', '2023-11-01');
+
     `,
         tables: ['subscriptions', 'usage_logs', 'marketing_leads']
     },
-    "108": [
-        { req: "We're planning a database migration. I need a dump of subscriptions that are NOT 'Active'.", check: (res, sql) => sql.toLowerCase().includes("not") && sql.toLowerCase().includes("active"), hint: "Filter the subscription status using the NOT operator." },
-        { req: "I need to analyze our churn rate. Can you pull a list of usage logs that did NOT last between 10 and 20 minutes?", check: (res, sql) => sql.toLowerCase().includes("not between") && sql.toLowerCase().includes("10 and 20"), hint: "Use NOT BETWEEN to exclude a specific duration range." },
-        { req: "The engineering team needs to debug a login issue. Find marketing leads whose source does NOT contain 'Google'.", check: (res, sql) => sql.toLowerCase().includes("not like") && sql.toLowerCase().includes("google"), hint: "Use NOT LIKE with wildcard characters to exclude Google sources." },
-        { req: "I need to analyze our churn rate. Can you pull a list of subscriptions that do NOT have a 'Pro' plan?", check: (res, sql) => (sql.toLowerCase().includes("not") || sql.toLowerCase().includes("!=")) && sql.toLowerCase().includes("pro"), hint: "Exclude Pro tier subscriptions using a negative filter." },
-        { req: "For our Q1 growth analysis, please get me leads where the score is NOT between 0 and 40.", check: (res, sql) => sql.toLowerCase().includes("not between 0 and 40"), hint: "Use NOT BETWEEN to omit the lower band of scores." },
-        { req: "I need to analyze our churn rate. Can you pull a list of usage logs where the feature is NOT 'Dashboard' or 'Login'?", check: (res, sql) => sql.toLowerCase().includes("not in") && sql.toLowerCase().includes("dashboard") && sql.toLowerCase().includes("login"), hint: "Use NOT IN with a list to exclude multiple specific features." },
-        { req: "We're preparing the monthly active user report. I need you to show me subscriptions with revenue NOT between $10 and $50.", check: (res, sql) => sql.toLowerCase().includes("not between 10 and 50"), hint: "Omit a specific revenue range using NOT BETWEEN." },
-        { req: "Compliance needs a report on user data access. Please find leads whose email does NOT end in '.net'.", check: (res, sql) => sql.toLowerCase().includes("not like") && sql.toLowerCase().includes(".net"), hint: "Filter out emails ending in .net using NOT LIKE." },
-        { req: "I need to analyze our churn rate. Can you pull a list of subscriptions where the status is != 'Cancelled'?", check: (res, sql) => sql.toLowerCase().includes("!=") || sql.toLowerCase().includes("not"), hint: "Use the inequality operator (!=) or NOT to exclude cancelled statuses." },
-        { req: "For our Q1 growth analysis, please get me usage logs where the user ID is NOT IN (501, 502, 503).", check: (res, sql) => sql.toLowerCase().includes("not in") && sql.toLowerCase().includes("501"), hint: "Use NOT IN to exclude a specific set of user IDs." },
-        { req: "We're preparing the monthly active user report. I need you to show me leads that do NOT have a score of 100.", check: (res, sql) => (sql.toLowerCase().includes("!=") || sql.toLowerCase().includes("not")) && sql.toLowerCase().includes("100"), hint: "Exclude perfect scores using a not equal constraint." }
-    ],
+
     "hr": {
         name: "HR & Operations",
         icon: "👥",
@@ -124,21 +94,7 @@ const INDUSTRY_CONFIGS = {
             INSERT INTO salaries VALUES (1, 85000, 'USD', '2022-01-01');
             INSERT INTO salaries VALUES (2, 65000, 'USD', '2022-06-01');
             INSERT INTO salaries VALUES (3, 62000, 'USD', '2023-01-01');
-        
-            INSERT INTO employees VALUES (4, 'Eve Adams', 'Sales', 'Manager', 95000, '2021-06-15');
-            INSERT INTO employees VALUES (5, 'Frank White', 'HR', 'Recruiter', 65000, '2022-03-10');
-            INSERT INTO employees VALUES (6, 'Grace Kelly', 'Engineering', 'Developer', 85000, '2023-01-20');
-            INSERT INTO employees VALUES (7, 'Hank Moody', 'Marketing', 'Designer', 75000, '2023-07-05');
-            INSERT INTO employees VALUES (8, 'Ivy Green', 'Sales', 'Director', 140000, '2019-05-12');
-            
-            INSERT INTO departments VALUES (4, 'Support', 'Chicago', 500000);
-            INSERT INTO departments VALUES (5, 'Legal', 'Austin', 800000);
-            
-            INSERT INTO reviews VALUES (4, 4, '2023-06-15', 4.8, 'Exceeds expectations');
-            INSERT INTO reviews VALUES (5, 5, '2023-03-10', 3.5, 'Meets expectations');
-            INSERT INTO reviews VALUES (6, 6, '2024-01-20', 4.2, 'Strong performer');
-            INSERT INTO reviews VALUES (7, 7, '2024-07-05', 3.8, 'Good addition');
-            INSERT INTO reviews VALUES (8, 8, '2023-11-01', 4.9, 'Top talent');
+
     `,
         tables: ['employees', 'departments', 'salaries']
     },
@@ -160,23 +116,7 @@ const INDUSTRY_CONFIGS = {
             INSERT INTO doctors VALUES (10, 'Dr. Gregory House', 'Diagnostics', 20);
             INSERT INTO doctors VALUES (11, 'Dr. Allison Cameron', 'Immunology', 8);
             INSERT INTO doctors VALUES (12, 'Dr. Robert Chase', 'Surgery', 10);
-        
-            INSERT INTO patients VALUES (4, 'Eve Adams', '1964-03-15', 'F', 'O-');
-            INSERT INTO patients VALUES (5, 'Frank White', '1979-03-25', 'M', 'A+');
-            INSERT INTO patients VALUES (6, 'Grace Kelly', '1978-10-01', 'F', 'B-');
-            INSERT INTO patients VALUES (7, 'Hank Moody', '1970-01-20', 'M', 'AB+');
-            INSERT INTO patients VALUES (8, 'Ivy Green', '1971-06-25', 'F', 'O+');
-            
-            INSERT INTO doctors VALUES (13, 'Dr. Smith', 'Pediatrics', 15);
-            INSERT INTO doctors VALUES (14, 'Dr. Nick', 'Surgery', 5);
-            INSERT INTO doctors VALUES (15, 'Dr. House', 'Diagnostics', 20);
-            
-            INSERT INTO visits VALUES (104, 4, 13, '2023-06-10', 'Checkup', 150.00);
-            INSERT INTO visits VALUES (105, 5, 14, '2023-08-15', 'Vaccination', 50.00);
-            INSERT INTO visits VALUES (106, 6, 15, '2023-11-20', 'Sprain', 350.00);
-            INSERT INTO visits VALUES (107, 7, 10, '2024-01-05', 'Surgery Prep', 1200.00);
-            INSERT INTO visits VALUES (108, 8, 11, '2024-02-14', 'Allergy', 80.00);
-            INSERT INTO visits VALUES (109, 1, 12, '2024-03-01', 'Consultation', 500.00);
+
     `,
         tables: ['patients', 'appointments', 'doctors']
     },
@@ -891,17 +831,17 @@ const managerRequestsByIndustry = {
             { req: "We're monitoring user engagement for the new feature. Please retrieve usage logs with duration starting with '1'.", check: (res, sql) => sql.toLowerCase().includes("like") && sql.toLowerCase().includes("1%"), hint: "Identify records where the duration string representation starts with a particular digit." }
         ],
         "108": [
-            { req: "We're planning a database migration. I need a dump of a count of the total number of subscriptions we have.", check: (res, sql) => sql.toLowerCase().includes("not ") && (sql.toLowerCase().includes("count(*)")), hint: "Think about an analytical function that returns the total count of rows." },
-            { req: "I need to analyze our churn rate. Can you pull a list of what is the average duration of our usage logs?", check: (res, sql) => sql.toLowerCase().includes("not ") && (sql.toLowerCase().includes("avg(duration_mins)")), hint: "Identify the mathematical function used to calculate the mean of the duration column." },
-            { req: "The engineering team needs to debug a login issue. Find the total monthly revenue from all customers for them.", check: (res, sql) => sql.toLowerCase().includes("not ") && (sql.toLowerCase().includes("sum(monthly_revenue)")), hint: "Consider a function that adds up every value in the revenue column." },
-            { req: "I need to analyze our churn rate. Can you pull a list of what is the highest lead score we've ever had?", check: (res, sql) => sql.toLowerCase().includes("not ") && (sql.toLowerCase().includes("max(score)")), hint: "Look for a function that identifies the single largest value in a column." },
-            { req: "For our Q1 growth analysis, please get me what is the lowest monthly revenue recorded.", check: (res, sql) => sql.toLowerCase().includes("not ") && (sql.toLowerCase().includes("min(monthly_revenue)")), hint: "Identify the function that returns the absolute lowest value from the revenue list." },
-            { req: "I need to analyze our churn rate. Can you pull a list of a count of the number of marketing leads in our database?", check: (res, sql) => sql.toLowerCase().includes("not ") && (sql.toLowerCase().includes("count(")), hint: "Determine the total volume of entries in the lead table using an aggregate function." },
-            { req: "We're preparing the monthly active user report. I need you to show me what is the total duration minutes logged in usage.", check: (res, sql) => sql.toLowerCase().includes("not ") && (sql.toLowerCase().includes("sum(duration_mins)")), hint: "Focus on summing the entire set of duration values." },
-            { req: "Compliance needs a report on user data access. Please find the average lead score.", check: (res, sql) => sql.toLowerCase().includes("not ") && (sql.toLowerCase().includes("avg(score)")), hint: "Calculate the typical score across all marketing leads." },
-            { req: "I need to analyze our churn rate. Can you pull a list of what is the earliest subscription start date?", check: (res, sql) => sql.toLowerCase().includes("not ") && (sql.toLowerCase().includes("min(start_date)")), hint: "Find the smallest (earliest) value in the date column." },
-            { req: "For our Q1 growth analysis, please get me what is the latest log date recorded.", check: (res, sql) => sql.toLowerCase().includes("not ") && ((sql.toLowerCase().includes("max(log_date)") || sql.toLowerCase().includes("max(usage_date)"))), hint: "Identify the largest (most recent) date in the usage table." },
-            { req: "We're preparing the monthly active user report. I need you to show me the count of active subscriptions are there? (Count with filter).", check: (res, sql) => sql.toLowerCase().includes("not ") && (sql.toLowerCase().includes("count") && sql.toLowerCase().includes("active")), hint: "Combine an aggregate counting function with a specific filter for 'Active' status." }
+            { req: "We're planning a database migration. I need a dump of subscriptions that are NOT 'Active'.", check: (res, sql) => sql.toLowerCase().includes("not") && sql.toLowerCase().includes("active"), hint: "Filter the subscription status using the NOT operator." },
+            { req: "I need to analyze our churn rate. Can you pull a list of usage logs that did NOT last between 10 and 20 minutes?", check: (res, sql) => sql.toLowerCase().includes("not between") && sql.toLowerCase().includes("10 and 20"), hint: "Use NOT BETWEEN to exclude a specific duration range." },
+            { req: "The engineering team needs to debug a login issue. Find marketing leads whose source does NOT contain 'Google'.", check: (res, sql) => sql.toLowerCase().includes("not like") && sql.toLowerCase().includes("google"), hint: "Use NOT LIKE with wildcard characters to exclude Google sources." },
+            { req: "I need to analyze our churn rate. Can you pull a list of subscriptions that do NOT have a 'Pro' plan?", check: (res, sql) => (sql.toLowerCase().includes("not") || sql.toLowerCase().includes("!=")) && sql.toLowerCase().includes("pro"), hint: "Exclude Pro tier subscriptions using a negative filter." },
+            { req: "For our Q1 growth analysis, please get me leads where the score is NOT between 0 and 40.", check: (res, sql) => sql.toLowerCase().includes("not between 0 and 40"), hint: "Use NOT BETWEEN to omit the lower band of scores." },
+            { req: "I need to analyze our churn rate. Can you pull a list of usage logs where the feature is NOT 'Dashboard' or 'Login'?", check: (res, sql) => sql.toLowerCase().includes("not in") && sql.toLowerCase().includes("dashboard") && sql.toLowerCase().includes("login"), hint: "Use NOT IN with a list to exclude multiple specific features." },
+            { req: "We're preparing the monthly active user report. I need you to show me subscriptions with revenue NOT between $10 and $50.", check: (res, sql) => sql.toLowerCase().includes("not between 10 and 50"), hint: "Omit a specific revenue range using NOT BETWEEN." },
+            { req: "Compliance needs a report on user data access. Please find leads whose email does NOT end in '.net'.", check: (res, sql) => sql.toLowerCase().includes("not like") && sql.toLowerCase().includes(".net"), hint: "Filter out emails ending in .net using NOT LIKE." },
+            { req: "I need to analyze our churn rate. Can you pull a list of subscriptions where the status is != 'Cancelled'?", check: (res, sql) => sql.toLowerCase().includes("!=") || sql.toLowerCase().includes("not"), hint: "Use the inequality operator (!=) or NOT to exclude cancelled statuses." },
+            { req: "For our Q1 growth analysis, please get me usage logs where the user ID is NOT IN (501, 502, 503).", check: (res, sql) => sql.toLowerCase().includes("not in") && sql.toLowerCase().includes("501"), hint: "Use NOT IN to exclude a specific set of user IDs." },
+            { req: "We're preparing the monthly active user report. I need you to show me leads that do NOT have a score of 100.", check: (res, sql) => (sql.toLowerCase().includes("!=") || sql.toLowerCase().includes("not")) && sql.toLowerCase().includes("100"), hint: "Exclude perfect scores using a not equal constraint." }
         ],
         "109": [
             { req: "For our Q1 growth analysis, please get me all subscriptions sorted alphabetically by plan.", check: (res, sql) => sql.toLowerCase().includes("order by") && (sql.toLowerCase().includes("order by plan")), hint: "Think about how to arrange your results based on the plan column." },
@@ -2019,13 +1959,24 @@ const renderIndustrySwitcher = () => {
         selector.id = 'industry-selector';
         selector.className = 'industry-tabs';
         wrapper.appendChild(selector);
-    }
 
-    selector.innerHTML = Object.keys(INDUSTRY_CONFIGS).map(id => `
-        <button class="industry-tab ${id === currentIndustry ? 'active' : ''}" onclick="switchIndustry('${id}')">
-            ${INDUSTRY_CONFIGS[id].name}
-        </button>
-    `).join('');
+        // Populate tabs initially
+        selector.innerHTML = Object.keys(INDUSTRY_CONFIGS).map(id => `
+            <button class="industry-tab ${id === currentIndustry ? 'active' : ''}" onclick="switchIndustry('${id}')">
+                ${INDUSTRY_CONFIGS[id].name}
+            </button>
+        `).join('');
+    } else {
+        // Update active state
+        const buttons = selector.querySelectorAll('.industry-tab');
+        buttons.forEach(btn => {
+            if (btn.getAttribute('onclick').includes(currentIndustry)) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
 
     // Create or find the section jump nav (lives inside the wrapper)
     let jumpNav = document.getElementById('section-jump-nav');
@@ -2102,6 +2053,8 @@ const renderSectionJumpNav = (sections) => {
     `).join('');
 };
 
+let dashboardObserver = null;
+
 const renderDashboard = () => {
     const grid = document.getElementById('lesson-grid');
     const sections = [...new Set(lessons.map(l => l.section))];
@@ -2131,6 +2084,37 @@ const renderDashboard = () => {
             </div>
         </div>
     `).join('');
+
+    // Setup scroll observer for jump nav highlighting
+    if (dashboardObserver) {
+        dashboardObserver.disconnect();
+    }
+
+    const navButtons = document.querySelectorAll('.section-jump-btn');
+    if (navButtons.length > 0) {
+        dashboardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    navButtons.forEach(btn => {
+                        if (btn.getAttribute('onclick').includes(id)) {
+                            btn.classList.add('active');
+                        } else {
+                            btn.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '-40% 0px -40% 0px',
+            threshold: 0
+        });
+
+        document.querySelectorAll('.section-group').forEach(group => {
+            dashboardObserver.observe(group);
+        });
+    }
 
     updateProgressBar();
 };
